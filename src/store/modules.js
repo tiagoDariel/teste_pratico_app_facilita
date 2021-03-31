@@ -1,11 +1,11 @@
-import { store as teste1 } from '../modules/teste1'
-import { store as teste2 } from '../modules/teste2'
-import { store as teste3 } from '../modules/teste3'
-import { store as teste4 } from '../modules/teste4'
+import { store as medirAltura } from '../modules/medirAltura'
+import { store as biblioteca } from '../modules/biblioteca'
+import { store as matriz } from '../modules/matriz'
+import { store as fibonacci } from '../modules/fibonacci'
 
 export default {
-  teste1,
-  teste2,
-  teste3,
-  teste4
+  medirAltura,
+  biblioteca,
+  matriz,
+  fibonacci
 }
