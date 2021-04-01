@@ -11,15 +11,16 @@
     <div v-else-if="biblioteca">
       <livros />
     </div>
-    <div v-else-if="usuario">3</div>
+    <div v-else-if="usuario"><usuario /></div>
   </div>
 </template>
 
 <script>
-import Livros from '../components/Livros.vue'
 
+import Livros from '../components/Livros.vue'
+import Usuario from '../components/Usuario.vue'
 export default {
-  components: { Livros },
+  components: { Livros, Usuario },
   data () {
     return {
       emprestimo: true,
