@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="container"><b-icon-person-fill></b-icon-person-fill> referese a professor <b-icon-person></b-icon-person> referese a aluno</div>
+    <div class="container"><b-icon-person-fill></b-icon-person-fill>Professor <b-icon-person></b-icon-person>Aluno</div>
        <b-modal id="modal-add-livro" title="Adicionar Livro" hide-footer>
         <b-form-group id="input-group-2" label="Nome:" label-for="input-2">
         <b-form-input

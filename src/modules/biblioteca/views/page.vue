@@ -7,20 +7,25 @@
         <b-nav-item @click="link('usuario')" :active='usuario'>Usuário</b-nav-item>
       </b-nav>
     </div>
-    <div v-if="emprestimo"></div>
+    <div v-if="emprestimo">
+      <emprestimo />
+    </div>
     <div v-else-if="biblioteca">
       <livros />
     </div>
-    <div v-else-if="usuario"><usuario /></div>
+    <div v-else-if="usuario">
+      <usuario />
+    </div>
   </div>
 </template>
 
 <script>
+import Emprestimo from '../components/Emprestimo.vue'
 
 import Livros from '../components/Livros.vue'
 import Usuario from '../components/Usuario.vue'
 export default {
-  components: { Livros, Usuario },
+  components: { Livros, Usuario, Emprestimo },
   data () {
     return {
       emprestimo: true,
