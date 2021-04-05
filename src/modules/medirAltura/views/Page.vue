@@ -8,7 +8,7 @@
       </b-card>
       <div class="row">
         <div class="col-7">
-          <b-card>
+          <b-card class="tag">
             <b-form-tag
               v-for="user in usuario"
               @remove="removerTag(user)"
@@ -26,7 +26,7 @@
               </div>
             </div>
           </b-card>
-          <b-card>
+          <b-card class="list">
             <table class="table">
               <thead>
                 <tr>
@@ -123,18 +123,12 @@ export default {
     },
     verificar () {
       this.medir.anos = []
-      var alturaPessoaUm = ''
-      var alturaPessoaDois = ''
-      var CentimetrosPorAnoPessoaUm = ''
-      var CentimetrosPorAnoPessoaDois = ''
-      var conteAno = ''
-      if (this.usuario[0].altura <= this.usuario[1].altura && this.usuario[0].cma > this.usuario[1].cma) {
-        console.log(1)
-        alturaPessoaUm = this.usuario[0].altura
-        alturaPessoaDois = this.usuario[1].altura
-        CentimetrosPorAnoPessoaUm = this.usuario[0].cma / 100
-        CentimetrosPorAnoPessoaDois = this.usuario[1].cma / 100
-        conteAno = 0
+      var alturaPessoaUm = this.usuario[0].altura
+      var alturaPessoaDois = this.usuario[1].altura
+      var CentimetrosPorAnoPessoaUm = this.usuario[0].cma / 100
+      var CentimetrosPorAnoPessoaDois = this.usuario[1].cma / 100
+      var conteAno = 0
+      if (alturaPessoaUm <= alturaPessoaDois && CentimetrosPorAnoPessoaUm > CentimetrosPorAnoPessoaDois) {
         this.medir.usuarioMenor = this.usuario[0].nome
         this.medir.usuarioMaior = this.usuario[1].nome
         while (alturaPessoaDois > alturaPessoaUm) {
@@ -144,17 +138,9 @@ export default {
           this.medir.anos.push({ anos: conteAno, AlturasPessoaUm: alturaPessoaUm.toFixed(2), AlturasPessoaDois: alturaPessoaDois.toFixed(2) })
         }
       } else {
-        console.log(this.usuario[1].altura)
-        alturaPessoaUm = this.usuario[1].altura
-        alturaPessoaDois = this.usuario[0].altura
-        CentimetrosPorAnoPessoaUm = this.usuario[1].cma / 100
-        CentimetrosPorAnoPessoaDois = this.usuario[0].cma / 100
-        conteAno = 0
         this.medir.usuarioMenor = this.usuario[1].nome
-        this.medir.usuarioMaior = this.usuario[2].nome
-        console.log(this.usuario[1].altura)
-        console.log(alturaPessoaDois)
-        while (alturaPessoaUm < alturaPessoaDois) {
+        this.medir.usuarioMaior = this.usuario[0].nome
+        while (alturaPessoaDois < alturaPessoaUm) {
           alturaPessoaUm = alturaPessoaUm + CentimetrosPorAnoPessoaUm
           alturaPessoaDois = alturaPessoaDois + CentimetrosPorAnoPessoaDois
           conteAno = conteAno + 1
@@ -172,5 +158,14 @@ export default {
 <style>
 .result {
   border: 1px solid black;
+  height: 80vh;
+  overflow: auto;
+}
+.list {
+  height: 65vh;
+  overflow: auto;
+}
+.tag {
+  height: 15vh;
 }
 </style>
