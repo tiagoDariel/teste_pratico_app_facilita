@@ -48,6 +48,7 @@ export default {
   },
   mounted () {
     this.ActionListLivros()
+    this.mudarData('2017-04-03')
   },
   methods: {
     ...mapActions('biblioteca', ['ActionListLivros', 'actionAddLivro']),
@@ -58,7 +59,12 @@ export default {
     }
   },
   computed: {
-    ...mapGetters('biblioteca', ['listLivros'])
+    ...mapGetters('biblioteca', ['listLivros']),
+    mudarData (data) {
+      var array = data.split('-')
+      console.log(array)
+      return array
+    }
   }
 }
 </script>

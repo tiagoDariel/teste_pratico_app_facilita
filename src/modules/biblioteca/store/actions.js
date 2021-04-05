@@ -15,6 +15,14 @@ export const ActionListLivros = async ({ commit }) => {
     commit('SET_ERROR', 'error')
   }
 }
+
+export const ActionEmprestarLivro = async ({ dispatch }, payload) => {
+  await services.emprestimoDeLivro(payload.id, payload.form).then(() => {
+    dispatch('ActionListUsuario')
+    dispatch('ActionListLivros')
+  })
+}
+
 export const ActionListUsuario = async ({ commit }) => {
   try {
     const lista = await services.listaUsuario().then(res => {
@@ -29,4 +37,11 @@ export const ActionListUsuario = async ({ commit }) => {
 export const actionAddUsuario = async ({ dispatch }, payload) => {
   await services.saveUsuario(payload)
   return dispatch('ActionListUsuario')
+}
+export const actionImprimir = () => {
+  window.print()
+}
+export const actionPrint = async ({ commit }, payload) => {
+  commit('SET_PRINT', payload)
+  return window.print()
 }

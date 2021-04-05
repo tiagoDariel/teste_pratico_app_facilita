@@ -1,7 +1,7 @@
 export default [
   {
-    path: '/teste4',
-    name: 'Teste4',
+    path: '/fibonacci',
+    name: 'Fibonacci',
     component: () => import('./views/page.vue')
   }
 ]

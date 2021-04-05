@@ -16,6 +16,14 @@ class Services {
   saveUsuario (usuario) {
     return http.post('biblioteca-save-usuario', usuario)
   }
+
+  emprestimo (emprestimo) {
+    return http.post('biblioteca-emprestimo', emprestimo)
+  }
+
+  emprestimoDeLivro (id, emprestimo) {
+    return http.put(`biblioteca-update-livro/${id}`, emprestimo)
+  }
 }
 
 export default new Services()

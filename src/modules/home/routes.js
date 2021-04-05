@@ -1,7 +1,7 @@
 export default [
   {
-    path: '/matriz',
-    name: 'Matriz',
+    path: '/',
+    name: 'Home',
     component: () => import('./views/page.vue')
   }
 ]

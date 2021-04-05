@@ -1,7 +1,8 @@
 <template>
-  <div>
+  <div class="nonePrint">
     <div>
-      <b-nav tabs align="center">
+      <Menu />
+      <b-nav class="mt-4" tabs align="center">
         <b-nav-item @click="link('emprestimo')" :active='emprestimo'>Emprestimo</b-nav-item>
         <b-nav-item @click="link('biblioteca')" :active='biblioteca'>Biblioteca</b-nav-item>
         <b-nav-item @click="link('usuario')" :active='usuario'>Usuário</b-nav-item>
@@ -20,12 +21,12 @@
 </template>
 
 <script>
+import Menu from '@/components/Menu.vue'
 import Emprestimo from '../components/Emprestimo.vue'
-
 import Livros from '../components/Livros.vue'
 import Usuario from '../components/Usuario.vue'
 export default {
-  components: { Livros, Usuario, Emprestimo },
+  components: { Livros, Usuario, Emprestimo, Menu },
   data () {
     return {
       emprestimo: true,

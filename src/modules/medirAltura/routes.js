@@ -1,7 +1,7 @@
 export default [
   {
-    path: '/teste1',
-    name: 'Teste1',
+    path: '/medir-altura',
+    name: 'Medir',
     component: () => import('./views/Page')
   }
 ]
