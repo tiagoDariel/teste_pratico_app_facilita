@@ -3,7 +3,7 @@
     <div class="conteudo">
       <router-view/>
     </div>
-      <div class="footer bg-dark">
+      <div class="footer bg-dark nonePrint">
         <div class="mt-4">
           <div>© Tiago Dariel</div>
             <b-icon-github></b-icon-github> <a href="https://github.com/tiagoDariel">github</a>

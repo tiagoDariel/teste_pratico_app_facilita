@@ -162,7 +162,6 @@
           <b-button
             class="m-2 float-right"
             variant="primary"
-            v-b-modal.modal-emprestimo
             @click="emprestar(selectUsuario.id)"
           >
             Salvar
@@ -192,6 +191,7 @@
             </div>
           </div>
         </div>
+        {{novaListadeLivros}}
       </b-card>
       <div class="embledPrint print">
         <print :printers="printar" />
@@ -202,7 +202,6 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import moment from 'moment'
 import Print from './Print.vue'
 export default {
   components: { Print },
@@ -223,7 +222,7 @@ export default {
       usuario_id: '',
       emprestimos: [],
       dataVencimento: '',
-      novaData: '',
+      dataAtual: '',
       printar: ''
     }
   },
@@ -245,7 +244,7 @@ export default {
       } else {
         this.emprestimos.push(livro.nome_livro)
         this.livroId.push(livro.id)
-        this.formEmp.push({ usuario_id: this.usuario_id, entrega: moment().format('YYYY-MM-DD'), devolucao: this.dataVencimento })
+        this.formEmp.push({ usuario_id: this.usuario_id, entrega: this.trazerDiaHoje, devolucao: this.dataVencimento })
       }
     },
     removeTag (livro) {
@@ -254,6 +253,7 @@ export default {
     },
     emprestarPara (users) {
       this.formEmp = []
+      this.livroId = []
       this.emprestimos = []
       this.selectUsuario = users
       this.usuario_id = users.id
@@ -273,10 +273,10 @@ export default {
       var novaData = new Date(hoje.getTime() + (dias * 24 * 60 * 60 * 1000))
       return novaData.getDate() + '/' + (novaData.getMonth() + 1) + '/' + novaData.getFullYear()
     },
-    async emprestar () {
-      for (var i = 0; i < this.formEmp.length; i++) {
-        await this.ActionEmprestarLivro({ id: this.livroId[i], form: this.formEmp[i] }).then(() => {
-          return this.ActionListLivros
+    emprestar () {
+      for (var i = 0; i <= this.formEmp.length - 1; i++) {
+        this.ActionEmprestarLivro({ id: this.livroId[i], form: this.formEmp[i] }).then(() => {
+          if (i === this.formEmp.length - 1) return this.ActionListLivros()
         })
       }
     },
@@ -288,7 +288,11 @@ export default {
     }
   },
   computed: {
-    ...mapGetters('biblioteca', ['listLivros', 'listUsuario'])
+    ...mapGetters('biblioteca', ['listLivros', 'listUsuario']),
+    trazerDiaHoje () {
+      var hoje = new Date()
+      return hoje.getFullYear() + '-' + (hoje.getMonth() + 1) + '-' + hoje.getDate()
+    }
   }
 }
 </script>

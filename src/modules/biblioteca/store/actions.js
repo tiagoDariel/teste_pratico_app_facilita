@@ -8,6 +8,12 @@ export const actionAddLivro = async ({ dispatch }, payload) => {
 export const ActionListLivros = async ({ commit }) => {
   try {
     const lista = await services.lista().then(res => {
+      res.data.forEach(element => {
+        const arrayL = element.entrega.split('-')
+        element.novaDataLocacao = arrayL[2] + '/' + arrayL[1] + '/' + arrayL[0]
+        const arrayD = element.devolucao.split('-')
+        element.novaDataDevolucao = arrayD[2] + '/' + arrayD[1] + '/' + arrayD[0]
+      })
       return res.data
     })
     commit('SET_LIVROS', { lista })
@@ -17,6 +23,7 @@ export const ActionListLivros = async ({ commit }) => {
 }
 
 export const ActionEmprestarLivro = async ({ dispatch }, payload) => {
+  console.log(payload)
   await services.emprestimoDeLivro(payload.id, payload.form).then(() => {
     dispatch('ActionListUsuario')
     dispatch('ActionListLivros')
