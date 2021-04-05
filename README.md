@@ -1,20 +1,48 @@
-# este_pratico_app_facilita
-## para este projeto funcionar é preciso:
- ## ter o back_end com o nome 'problemas_back_end
-  ## banco de dados com o nome problemas
-## Project setup 
-### instalação dos itens do node_modules
+# teste_pratico_app_facilita
+problemas
+
+## conteúdo sem fins lucrativos
+
+## criado para teste_pratico_facilita
+
+## back-end com o laravel no arquivo problemas_back_end 
+
+banco criado para integração do projeto Mysql.8
+
+## criação de banco
+
+CREATE DATABASE problemas;
+
+## codigos para iniciar o projeto back
+1° composer install..
+2° php artisan migrate..
+
+## codigo para iniciar o front
 
 yarn install
 
-## compilação
+'yarn server' or 
 
-yarn serve
+'yarn build' for prodution
 
-### Compilar para produção
 
-yarn build
-### Lints and fixes files
+## linguagens:
+PHP, JavaScript
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## frameWorks
+
+laravel, Vue.js
+
+## banco de dados
+MySql
+
+## hospedagem de projeto
+GitHub
+
+# prompt
+git
+
+# editor de código
+Visual Studio Code
+
+VS.Code
