@@ -124,17 +124,17 @@ export default {
       var ordeny = transform.sort((a, b) => {
         return a - b
       })
-      for (var i = 0; i < ordeny.length - 1; i++) {
+      for (var i = 0; i < ordeny.length; i++) {
         var f1 = 0
         var f2 = 1
         var fn = 0
-        while (f1 < ordeny[ordeny.length - 1]) {
-          if (ordeny[i] === fn) {
-            this.acceptedNumber.push(ordeny[i])
-          }
+        while (f1 <= ordeny[ordeny.length - 1]) {
           fn = f1 + f2 // F¹ + F² = Fn
           f2 = f1 // F² = F¹
           f1 = fn // F¹ = Fn
+          if (ordeny[i] === fn) {
+            this.acceptedNumber.push(ordeny[i])
+          }
         }
         this.acceptedNumber = this.acceptedNumber.filter(
           (remove, removerNum) => {

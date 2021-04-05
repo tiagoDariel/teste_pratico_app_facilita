@@ -1,24 +1,20 @@
 # este_pratico_app_facilita
+## para este projeto funcionar é preciso:
+ ## ter o back_end com o nome 'problemas_back_end
+  ## banco de dados com o nome problemas
+## Project setup 
+### instalação dos itens do node_modules
 
-## Project setup
-```
 yarn install
-```
 
-### Compiles and hot-reloads for development
-```
+## compilação
+
 yarn serve
-```
 
-### Compiles and minifies for production
-```
+### Compilar para produção
+
 yarn build
-```
-
 ### Lints and fixes files
-```
-yarn lint
-```
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
